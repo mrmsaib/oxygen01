@@ -20,8 +20,8 @@ module Oxygenarabi
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     console do 
-      ActiveRecord::Base.connection.execute "SET collation_database ='utf8_general_ci' "
-      ActiveRecord::Base.connection.execute "SET collation_connection ='utf8_general_ci' "
+      ActiveRecord::Base.connection.execute "SET collation_database ='utf8_unicode_ci' "
+      ActiveRecord::Base.connection.execute "SET collation_connection ='utf8_unicode_ci' "
     end
   end
 end
