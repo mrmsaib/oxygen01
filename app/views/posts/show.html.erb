@@ -1,0 +1,60 @@
+<div class="row row-rtl">
+  <div class="col-md-9">
+    <h3>
+      <%= link_to(@post.headline, @post.source_url, target: '_blank') %> |
+			<%= image_tag(@post.source, width: "10%", height: "10%") %>
+		</h3>
+		<p>
+		  <%= image_tag(@post.image) %>
+	  </p>
+
+    <%= link_to "أكتب تعليقك", new_post_review_path(@post.id), class: "btn btn-default" %>
+  </div>
+	<div class="col-md-3">
+	</div>
+</div>
+<br/>
+<br/>
+<br/>
+<div class="row row-rtl">
+  <div class="col-md-9">
+    <% if @reviews.blank? %>
+			<h3> 
+		لا يوجد تعليقات، كُن أوّل من يكتب تعليقاً
+		  </h3>
+    <% else %>
+			<table class="table">
+				<thead>
+					<tr>
+						<th class="col-md-3"></th>
+						<th class="col-md-9"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @reviews.each do |review| %>
+					<tr>
+						<td>
+							<h4>
+								<%= "#{review.user.first_name} #{review.user.last_name}" %>
+							</h4>
+							<p><%= review.created_at.strftime("%-m/%-d/%-y") %></p>
+						</td>
+						<td class="active">
+							<%= h(review.comment).gsub(/\n/, '<br/>').html_safe %>
+							<br/>
+	 						<% if user_signed_in? %>
+	 						  <% if (review.user == current_user) || (current_user.admin?) %>
+	 						    <%= link_to "Edit", edit_post_review_path(@post, review) %> |
+	 								<%= link_to "Delete", post_review_path(@post, review), method: :delete, data: {confirm: 'هل أنت متأكد؟'} %>
+	 							<% end %>
+	 					 <% end %>
+						</td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+    <% end %>
+  </div>
+</div>
+<%= link_to 'الصفحه الرئيسيه', posts_path, class: 'btn btn-link' %>
+
