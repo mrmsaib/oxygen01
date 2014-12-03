@@ -123,7 +123,7 @@ namespace :scraper do
       @post.save
     end # end if statement
     #*************************************************************************************************
-    # aawsat.com
+=begin    # aawsat.com
     #
     #1 Fetch the website data
     aawsat = "http://www.aawsat.com"
@@ -149,6 +149,7 @@ namespace :scraper do
       #4 Save data in posts table
       @post.save
     end
+=end
     #*************************************************************************************************
     # aawsat.com
     #
