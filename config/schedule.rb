@@ -1,9 +1,12 @@
 # Use this file to easily define all of your cron jobs.
 # my codes
-every 5.minutes do 
+every 2.hours do 
   rake "scraper:scrape"
 end
 
+every 1.day do
+  rake "scraper:discard"
+end
 
 #
 # It's helpful, but not entirely necessary to understand cron before proceeding.

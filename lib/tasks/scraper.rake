@@ -196,7 +196,7 @@ namespace :scraper do
   desc "Discard old posts"
   task discard: :environment do 
     Post.all.each do |post| 
-      if post.created_at < 20.hours.ago
+      if post.created_at < 23.hours.ago
         post.destroy
       end
     end
