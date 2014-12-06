@@ -1,6 +1,6 @@
 # Use this file to easily define all of your cron jobs.
 # my codes
-every 2.hours do 
+every 4.hours do 
   rake "scraper:scrape"
 end
 
