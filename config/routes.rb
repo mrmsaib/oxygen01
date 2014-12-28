@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :categories
+
   devise_for :users
   resources :posts do 
     resources :reviews, except: [:show, :index] # to remove unnecessary URLs

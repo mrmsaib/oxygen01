@@ -1,24 +1,29 @@
 <div>
+	<div class="row row-rtl">
+	  <% Category.all.each do |category| %>
+			<div class="col-md-2">
+		<%= link_to category.name, posts_path(category: category.name) %>
+			</div>
+			<% end %>
+	</div>
 	<table class="table table-condensed table-hover">
 	  <thead>
 	    <tr>
-	      <th class="text-center"></th>
+	      <th class="text-center test"></th>
 	      <th class="text-center">العنوان</th>
 	      <th class="text-center">الوصف للخبر</th>
 	      <th class="text-center">المصدر</th>
-				<% if (user_signed_in?) && (current_user.admin?) %>
-		      <th colspan="2"></th>
-				<% end %>
+				
 	    </tr>
 	  </thead>
 
 	  <tbody>
 	    <% @posts.each do |post| %>
 	      <tr>
-	        <td><%= link_to(image_tag(post.image, class: "img-thumbnail"), post.source_url, target: '_blank') %></td>
+	        <td class="test"><%= link_to(image_tag(post.image, class: "img-thumbnail"), post.source_url, target: '_blank') %></td>
 	        <td><%= link_to(post.headline, post.source_url, target: '_blank') %></td>
-	        <td><%= post.description %></td>
-	        <td><%= image_tag(post.source, width: '25%', height: '25%') %></td>
+	        <td><%= truncate(post.description, length: 200) %></td>
+	        <td class="text-center"><%= image_tag(post.source, class: "img-responsive") %></td>
 	        <td class="text-center"><%= link_to 'تعليق وتقييم', post, class: 'btn btn-link' %></td>
 					<% if (user_signed_in?) && (current_user.admin?) %>
 			        <td><%= link_to 'تعديل', edit_post_path(post), class: 'btn btn-link' %></td>
@@ -32,7 +37,8 @@
 	<br>
 	<% if (user_signed_in?) && (current_user.admin?) %>
 	  <h3>
-		<%= link_to 'بوست جديد', new_post_path %>
+		<%= link_to 'بوست جديد', new_post_path %> ||
+		<%= link_to 'فئة جديده', new_category_path %>
 	  </h3>
 	<% end %>
 </div>
