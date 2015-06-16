@@ -1,40 +1,157 @@
-div {
-	direction: rtl;
-}
-
+/*
 .container-fluid {
-	padding: 10px 120px;
+	padding: 0px 120px;
 }
+*/ 
 
 .navbar-default {
 	.container-fluid {
-		background-color: #cc3333;
+		background-color: #c52f24;
+		height: 100px;
+		height-line: 20px;
 		.navbar-nav > li {
 			color: #000000;
 			font-size: 16px;
 			font-weight: bold;
+			
 		}
 		.navbar-brand {
-			color: black;
+			color: #ffffff;
 			font-size: 30px;
 			font-weight: bold;
-			font-family: 'hobo std';
-			text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 
-			1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+			line-height: 16px;
+			font-family: 'Oswald', sans-serif;
+			text-shadow: -3px 5px #000;
 		}
 	}
 }
 
-.row-rtl {
-    .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
-        float: right;
-    }
+.img-thumbnail {
+	width: 350px;
+	height: 200px;
 }
 
-.test {
-	width: 25%;
+td {
+	.img-rounded {
+	margin: 0 auto;
+	width: 50px;
+	height: 40px; 
+}
 }
 
+
+.img-rounded {
+	width: 50px;
+	height: 50px;
+}
+
+.tab ul {
+	list-style: none;
+	background-color: #444;
+	text-align: center;
+	padding: 0;
+	margin: 0;
+}
+
+.tab li {
+	font-family: 'Oswald', sans-serif;
+	font-size: 1.2em;
+	line-height: 40px;
+	height: 40px;
+	border-bottom: 1px sold #888;
+}
+
+.tab a {
+	text-decoration: none;
+	color: #fff;
+	transition: .3s background-color;
+	display: block;
+}
+
+.tab a:hover {
+	background-color: #ffd700;
+	color: #444;
+}
+
+.tab a.active {
+	background-color: #fff;
+	color: #444;
+	cursor: default;
+}
+
+@media screen and (min-width: 600px) {
+	.tab li {
+		width: 135px;
+		border-botton: none;
+		height: 40px;
+		line-height: 40px;
+		font-size: 1.4em;
+		padding: 0;
+	}
+	
+	/* Option1- Display Inline */
+	.tab li {
+		display: inline-block;
+		margin-right: -4px;
+	}
+	
+}
+
+a.headline-link {
+	font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	text-decoration: none;
+	color: #444;
+}
+
+/* mouse hover headline-link */
+a.headline-link:hover {
+	color: #C52F24;
+	border-bottom: solid 1px #ffd700;
+}
+
+.desc-text {
+  font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font: bold;
+}
+
+a.comment-link {
+	font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	text-decoration: none;
+	color: #444;
+}
+
+/* mouse hover comment-link */
+a.comment-link:hover {
+	color: #C52F24;
+	border-bottom:solid 1px #ffd700;
+}
+
+.navbar-bottom {
+	background-color: #808080;
+	font-family: 'Oswald', sans-serif;
+	color: #ffffff;
+	height: 110px;
+	margin: auto;
+	text-align: center;
+	padding-top: 5px; // you need to think about this one, so look for better solution. 
+}
+
+.navbar-bottom a {
+  display: inline-block;
+	color: #444;
+  border: 1px #ffd700 solid;
+	background-color: #ffd700;
+  border-radius: 30px;
+  padding: 4px 6px;
+  text-decoration: none;
+  &:hover {
+    background-color: #ffd700;
+		color: white;
+		text-decoration: none;
+    text-shadow: 1;
+	}
+}
 .footer {
 	position: relative;
 	margin-top: 80px;
@@ -42,3 +159,32 @@ div {
 	clear: both;
 }
 
+#social:hover {
+    			-webkit-transform:scale(1.1); 
+-moz-transform:scale(1.1); 
+-o-transform:scale(1.1); 
+			}
+			#social {
+				-webkit-transform:scale(0.8);
+                /* Browser Variations: */
+-moz-transform:scale(0.8);
+-o-transform:scale(0.8); 
+-webkit-transition-duration: 0.5s; 
+-moz-transition-duration: 0.5s;
+-o-transition-duration: 0.5s;
+			}           
+/* 
+    Only Needed in Multi-Coloured Variation 
+                                               */
+			.social-fb:hover {
+				color: #ffd700;
+			}
+			.social-tw:hover {
+				color: #ffd700;
+			}
+			.social-gp:hover {
+				color: #d34836;
+			}
+			.social-em:hover {
+				color: #f39c12;
+			}

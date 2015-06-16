@@ -3,4 +3,5 @@ class Post < ActiveRecord::Base
   belongs_to :category
   
   validates :headline, :source, presence: true
+
 end

@@ -1,25 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="ar" dir="rtl">
 <head>
-  <title>اوكسيجن عربي</title>
-		<%= render "layouts/bootstrap" %>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+	
+	  <title><%= yield(:title) %></title>
+		<%= favicon_link_tag  'oxygenarabi.jpg' %>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="description" content="أكسجين عربي - موقع عربي متخصص للبحث عن أدق المعلومات والأخبار في جميع المجالات من جميع المصادر، من مبرمجين عرب لمتصفحي الأنترنت في العالم العربي">
+		<meta name="keywords" content="O.Arabi, oxygenarabi.com/ www.oxygenarabi.com, أكسجين للأموال والأعمال, ثاني أكسيد الكربون, أكسجين رقمي, أوكسجين, عناصر كيميائيه وعلوم, أكسجين الحياة">
+	
+	<%= render "layouts/bootstrap" %>
+	<meta property="fb:app_id" content="{828792173831252}">
+		 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+			
+	 <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => false %>
+	 <%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
+	 <%= csrf_meta_tags %>
+	 
+	 <%= canonical_tag -%>
 </head>
 <body>
-<%= render "layouts/header" %>
-<div class="container-fluid">
-    <% flash.each do |name, msg| %>
-      <% if msg.is_a?(String) %>
-        <div class="alert alert-<%= name == "notice" ? "success" : "danger" %> alert-dismissable">
-          <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-          <%= content_tag :div, msg, :id => "flash_#{name}" %>
-        </div>
-      <% end %>
-    <% end %>
-<%= yield %>
-<%= render "layouts/footer" %>
-</div>
+	
+  <%= render "layouts/fb" %>
+	<%= render "layouts/header" %>
+	
+	<div class="container-fluid">
+	    <% flash.each do |name, msg| %>
+	      <% if msg.is_a?(String) %>
+	        <div class="alert alert-<%= name == "notice" ? "success" : "danger" %> alert-dismissable">
+	          <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+	          <%= content_tag :div, msg, :id => "flash_#{name}" %>
+	        </div>
+	      <% end %>
+	    <% end %>
+			
+	<%= yield %>
+	</div>
+	<%= render "layouts/footer" %>
 </body>
 </html>

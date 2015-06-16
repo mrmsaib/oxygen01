@@ -50,17 +50,17 @@ namespace :zeta do
     #
     #1 Fetch the website data
     thaqafnafsak_tech = "http://www.thaqafnafsak.com"
-    thaqafnafsak_tech_url = open("http://www.thaqafnafsak.com/tech")
+    thaqafnafsak_tech_url = open("http://www.thaqafnafsak.com/category/tech")
     thaqafnafsak_tech_doc = Nokogiri::HTML(thaqafnafsak_tech_url)
     
     begin
       #2 Assign variables to the fetched data
-      thaqafnafsak_tech_image = thaqafnafsak_tech_doc.css('figure.post-thumbnail a img')[0]['src']
+      thaqafnafsak_tech_image = thaqafnafsak_tech_doc.css('div.loop-thumb a img')[0]['src']
       thaqafnafsak_tech_image = thaqafnafsak_tech + thaqafnafsak_tech_image unless thaqafnafsak_tech_image.include? "http://"
-      thaqafnafsak_tech_headline = thaqafnafsak_tech_doc.css('h2.cat-grid-title a')[0].text
-      thaqafnafsak_tech_desc = thaqafnafsak_tech_doc.css('div.entry-content.cat-grid-meta p')[0].text.strip
-      thaqafnafsak_tech_source = "http://www.thaqafnafsak.com/wp-content/uploads/2014/12/th_logo.jpg"
-      thaqafnafsak_tech_link = thaqafnafsak_tech_doc.css('figure.post-thumbnail a')[0]['href']
+      thaqafnafsak_tech_headline = thaqafnafsak_tech_doc.css('h3.loop-title a')[0].text
+      thaqafnafsak_tech_desc = thaqafnafsak_tech_doc.css('div.mh-excerpt')[0].text.strip
+      thaqafnafsak_tech_source = "http://www.thaqafnafsak.com/wp-content/uploads/2015/02/cropped-cropped-th_logo.jpg"
+      thaqafnafsak_tech_link = thaqafnafsak_tech_doc.css('h3.loop-title a')[0]['href']
       thaqafnafsak_tech_link = thaqafnafsak_tech + thaqafnafsak_tech_link unless thaqafnafsak_tech_link.include? "http://"
     
       #3 Add data to posts database
@@ -144,8 +144,7 @@ namespace :zeta do
       end # if statement
     rescue
     end # rescue
-    
-    #*************************************************************************************************
+     #*************************************************************************************************
 
     # Science, arageek.com
     #
@@ -156,8 +155,9 @@ namespace :zeta do
     
     begin
       #2 Assign variables to the fetched data
-      arageek_science_image = arageek_science_doc.css('div.c5-thumb-hover a img')[0]['src']
-      arageek_science_image = arageek_science + arageek_science_image unless arageek_science_image.include? "http://"
+      #arageek_science_image = arageek_science_doc.css('div.c5-thumb-hover a img')[0]['src']
+      #arageek_science_image = arageek_science + arageek_science_image unless arageek_science_image.include? "http://"
+      arageek_science_image = "science.jpg"
       arageek_science_headline = arageek_science_doc.css('div.content a')[0].text
       arageek_science_desc = arageek_science_doc.css('div.content p')[0].text
       arageek_science_source = "arageek.jpeg"
@@ -177,7 +177,40 @@ namespace :zeta do
         @post.save
       end # if statement
     rescue
-    end # rescue  
+    end # rescue 
+     #*************************************************************************************************
+
+    # Health, xn--lgbbz3e9a.net/  => main page
+    #
+    #1 Fetch the website data
+    fawa3d = "http://www.xn--lgbbz3e9a.net"
+    fawa3d_url = open("http://www.xn--lgbbz3e9a.net/")
+    fawa3d_doc = Nokogiri::HTML(fawa3d_url)
+    
+    #2 Assign variables to the fetched data
+    fawa3d_image = fawa3d_doc.css('div.post-outer article a img')[0]['src']
+    fawa3d_image = fawa3d + fawa3d_image unless fawa3d_image.include? "http://"
+    fawa3d_headline = fawa3d_doc.css('h2.post-title.entry-title a')[0].text
+    fawa3d_desc = fawa3d_doc.css('div.post-body.entry-content div')[0].text.strip
+    fawa3d_source = "http://1.bp.blogspot.com/-SNo-Cv4Cv4Q/U6EZsYB8Q0I/AAAAAAAAIa4/rlGM3SyfwHE/s1600/%25D9%2584%25D9%2588%25D8%25AC%25D9%2588%2B%25D9%2585%25D9%2588%25D9%2582%25D8%25B9%2B%25D9%2581%25D9%2588%25D8%25A7%25D8%25A6%25D8%25AF.png"
+    fawa3d_link = fawa3d_doc.css('div.post-outer article a')[0]['href']
+    fawa3d_link = fawa3d + fawa3d_link unless fawa3d_image.include? "http://" 
+    
+    #3 Add data to posts database
+    if (Post.find_by(headline: fawa3d_headline).nil?) && (Post.find_by(image: fawa3d_image).nil?)
+      @post = Post.new
+      @post.category_id = 6
+      @post.image = fawa3d_image
+      @post.headline = fawa3d_headline
+      @post.description = fawa3d_desc
+      @post.source = fawa3d_source
+      @post.source_url = fawa3d_link
+      #4 Save data in posts table
+      @post.save
+    end # if statement
+    
+    
+    
   end # zeta1
   
 end # namespace

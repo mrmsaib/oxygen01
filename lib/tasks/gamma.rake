@@ -364,8 +364,9 @@ namespace :gamma do
     
     begin
       #2 Assign variables to the fetched data
-      arabnet5_science_image = arabnet5_science_doc.css('li.NewsRow a img')[0]['src']
-      arabnet5_science_image = arabnet5_science + arabnet5_science_image unless arabnet5_science_image.include? "http://"
+      #arabnet5_science_image = arabnet5_science_doc.css('li.NewsRow a img')[0]['src']
+      #arabnet5_science_image = arabnet5_science + arabnet5_science_image unless arabnet5_science_image.include? "http://"
+      arabnet5_science_image = "science.jpg"
       arabnet5_science_headline = arabnet5_science_doc.css('li.NewsRow h2 a')[0].text
       arabnet5_science_desc = arabnet5_science_doc.css('li.NewsRow p.DetailsStyle')[0].text
       arabnet5_science_source = "http://www.arabnet5.com/images/arabnet5_logo3.gif"
@@ -443,7 +444,7 @@ namespace :gamma do
       #2 Assign variables to the fetched data
       cnn_image = cnn_doc.css('div.breakpoint a img')[0]['src']
       cnn_image = cnn + cnn_image unless cnn_image.include? "http://"
-      cnn_headline = cnn_doc.css('div.news-details.clearfix h2 a')[6].text
+      cnn_headline = cnn_headline = cnn_doc.css('div.breakpoint a img')[0]['alt']
       cnn_desc = cnn_headline
       cnn_source = "cnn.jpeg"
       cnn_link = cnn_doc.css('div.breakpoint a')[0]['href']
@@ -474,14 +475,14 @@ namespace :gamma do
     
     begin
       #2 Assign variables to the fetched data
-      unlimit_image = unlimit_doc.css('div.cb-mask a img')[14]['src']
+      unlimit_image = unlimit_doc.css('div#main div.cb-mask a img')[0]['src']
       unlimit_image =unlimit + unlimit_image unless unlimit_image.include? "http://"
-      unlimit_headline = unlimit_doc.css('h2.h4 a')[14].text
-      unlimit_desc = unlimit_doc.css('div.entry-content p')[15].text
+      unlimit_headline = unlimit_doc.css('div#main h2 a')[0].text
+      unlimit_desc = unlimit_doc.css('div#main div.entry-content p')[1].text
       unlimit_source = "unlimited.png"
       #unlimit_source = "http://www.unlimit-tech.com/blog/wp-content/themes/unlimit-tech-theme/library/images/logo@2x.png"
-      unlimit_link = unlimit_doc.css('div.cb-mask a')[14]['href']
-      unlimit_link =unlimit + unlimit_link unless unlimit_link.include? "http://" 
+      unlimit_link = unlimit_doc.css('div#main div.cb-mask a')[0]['href']
+      unlimit_link =unlimit + unlimit_link unless unlimit_link.include? "http://"
     
       #3 Add data to posts database
       if (Post.find_by(headline: unlimit_headline).nil?) && (Post.find_by(image: unlimit_image).nil?)
@@ -1045,8 +1046,9 @@ namespace :gamma do
     
     begin
       #2 Assign variables to the fetched data
-      elshaab_image = elshaab_doc.css('div.homeNews img')[0]['src']
-      elshaab_image = elshaab + elshaab_image unless elshaab_image.include? "http://"
+      #elshaab_image = elshaab_doc.css('div.homeNews img')[0]['src']
+      #elshaab_image = elshaab + elshaab_image unless elshaab_image.include? "http://"
+      elshaab_image = "economy.jpg"
       elshaab_headline = elshaab_doc.css('h5.title a')[0].text
       elshaab_desc = elshaab_doc.css('div.homeNewTitle p')[0].text
       elshaab_source = "elshaab.jpeg"

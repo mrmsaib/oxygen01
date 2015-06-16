@@ -260,7 +260,6 @@ namespace :delta do
       end # if statement
     rescue
     end # rescue
-    
     #*************************************************************************************************
     
     # business, alkhaleej
@@ -306,8 +305,9 @@ namespace :delta do
     
     begin
       #2 Assign variables to the fetched data
-      arabnet5_science_image = arabnet5_science_doc.css('li.NewsRow a img')[0]['src']
-      arabnet5_science_image = arabnet5_science + arabnet5_science_image unless arabnet5_science_image.include? "http://"
+      #arabnet5_science_image = arabnet5_science_doc.css('li.NewsRow a img')[0]['src']
+      #arabnet5_science_image = arabnet5_science + arabnet5_science_image unless arabnet5_science_image.include? "http://"
+      arabnet5_science_image = "science.jpg"
       arabnet5_science_headline = arabnet5_science_doc.css('li.NewsRow h2 a')[0].text
       arabnet5_science_desc = arabnet5_science_doc.css('li.NewsRow p.DetailsStyle')[0].text
       arabnet5_science_source = "http://www.arabnet5.com/images/arabnet5_logo3.gif"

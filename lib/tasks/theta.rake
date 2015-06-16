@@ -21,8 +21,9 @@ namespace :theta do
     
     begin
       #2 Assign variables to the fetched data
-      arageek_image = arageek_doc.css('div.c5-thumb-hover.clearfix a img')[0]['src']
-      arageek_image = arageek + arageek_image unless arageek_image.include?"http://"
+      #arageek_image = arageek_doc.css('div.c5-thumb-hover.clearfix a img')[0]['src']
+      #arageek_image = arageek + arageek_image unless arageek_image.include?"http://"
+      arageek_image = "money.jpg"
       arageek_headline = arageek_doc.css('div.content a')[0].text
       arageek_desc = arageek_doc.css('div.content p')[0].text
       arageek_source = "arageek.jpeg"

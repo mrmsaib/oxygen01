@@ -83,7 +83,7 @@ end
 # Zeta
 ###
 
-every 2.days, :at => '11:20 am' do
+every 1.day, :at => '4:00 pm' do
   rake "zeta:zeta1"
 end
 
@@ -94,12 +94,23 @@ every :sunday, :at => '11:20 am' do
   rake "theta:theta1"
 end
  
-# Omega
+# Omega1
 ###
 every 1.day, :at => '11:00 pm' do
-  rake "omega:discard"
+  rake "omega:omega1"
 end
- 
+
+# Omega2
+###
+every 1.day, :at => '11:10 pm' do
+  rake "omega:omega2"
+end
+
+# Omega3
+###
+every 1.day, :at => '11:20 pm' do
+  rake "omega:omega3"
+end
 
 #
 # It's helpful, but not entirely necessary to understand cron before proceeding.

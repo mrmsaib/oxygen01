@@ -6,9 +6,15 @@ Rails.application.routes.draw do
   resources :posts do 
     resources :reviews, except: [:show, :index] # to remove unnecessary URLs
   end
-  root 'posts#index'
+  root :to => 'posts#index'
+  get '/business' => 'posts#business'
+  get '/politics' => 'posts#politics'
+  get '/tech' => 'posts#tech'
+  get '/science' => 'posts#science'
+  get '/health' => 'posts#health'
   get 'pages/about'
   get 'pages/contact'
+  get 'pages/sitemap' => 'pages#sitemap.xml'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

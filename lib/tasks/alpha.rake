@@ -300,13 +300,13 @@ namespace :alpha do
     
     begin
       # Assign variables to the fetched data
-      unlimit_image = unlimit_doc.css('div.cb-mask a img')[14]['src']
+      unlimit_image = unlimit_doc.css('div#main div.cb-mask a img')[0]['src']
       unlimit_image =unlimit + unlimit_image unless unlimit_image.include? "http://"
-      unlimit_headline = unlimit_doc.css('h2.h4 a')[14].text
-      unlimit_desc = unlimit_doc.css('div.entry-content p')[15].text
+      unlimit_headline = unlimit_doc.css('div#main h2 a')[0].text
+      unlimit_desc = unlimit_doc.css('div#main div.entry-content p')[1].text
       unlimit_source = "unlimited.png"
       #unlimit_source = "http://www.unlimit-tech.com/blog/wp-content/themes/unlimit-tech-theme/library/images/logo@2x.png"
-      unlimit_link = unlimit_doc.css('div.cb-mask a')[14]['href']
+      unlimit_link = unlimit_doc.css('div#main div.cb-mask a')[0]['href']
       unlimit_link =unlimit + unlimit_link unless unlimit_link.include? "http://" 
     
       #3 Add data to posts database
@@ -570,8 +570,9 @@ namespace :alpha do
     
     begin
       #2 Assign variables to the fetched data
-      elshaab_image = elshaab_doc.css('div.homeNews img')[0]['src']
-      elshaab_image = elshaab + elshaab_image unless elshaab_image.include? "http://"
+      #elshaab_image = elshaab_doc.css('div.homeNews img')[0]['src']
+      #elshaab_image = elshaab + elshaab_image unless elshaab_image.include? "http://"
+      elshaab_image = "economy.jpg"
       elshaab_headline = elshaab_doc.css('h5.title a')[0].text
       elshaab_desc = elshaab_doc.css('div.homeNewTitle p')[0].text
       elshaab_source = "elshaab.jpeg"
@@ -597,17 +598,17 @@ namespace :alpha do
     #
     #1 Fetch the website data
     thaqafnafsak_health = "http://www.thaqafnafsak.com"
-    thaqafnafsak_health_url = open("http://www.thaqafnafsak.com/health")
+    thaqafnafsak_health_url = open("http://www.thaqafnafsak.com/category/health")
     thaqafnafsak_health_doc = Nokogiri::HTML(thaqafnafsak_health_url)
     
     begin
       #2 Assign variables to the fetched data
-      thaqafnafsak_health_image = thaqafnafsak_health_doc.css('figure.post-thumbnail a img')[0]['src']
+      thaqafnafsak_health_image = thaqafnafsak_health_doc.css('div.loop-thumb a img')[0]['src']
       thaqafnafsak_health_image = thaqafnafsak_health + thaqafnafsak_health_image unless thaqafnafsak_health_image.include? "http://"
-      thaqafnafsak_health_headline = thaqafnafsak_health_doc.css('h2.cat-grid-title a')[0].text.strip
-      thaqafnafsak_health_desc = thaqafnafsak_health_doc.css('div.entry-content.cat-list-meta p')[0].text.strip
-      thaqafnafsak_health_source = "http://www.thaqafnafsak.com/wp-content/uploads/2014/12/th_logo.jpg"
-      thaqafnafsak_health_link = thaqafnafsak_health_doc.css('figure.post-thumbnail a')[0]['href']
+      thaqafnafsak_health_headline = thaqafnafsak_health_headline = thaqafnafsak_health_doc.css('h3.loop-title a')[0].text.strip
+      thaqafnafsak_health_desc = thaqafnafsak_health_doc.css('div.mh-excerpt')[0].text.strip
+      thaqafnafsak_health_source = "http://www.thaqafnafsak.com/wp-content/uploads/2015/02/cropped-cropped-th_logo.jpg"
+      thaqafnafsak_health_link = thaqafnafsak_health_doc.css('h3.loop-title a')[0]['href']
       thaqafnafsak_health_link = thaqafnafsak_health + thaqafnafsak_health_link unless thaqafnafsak_health_link.include? "http://"
     
       #3 Add data to posts database

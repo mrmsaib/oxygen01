@@ -1,8 +1,7 @@
 class ReviewsController < ApplicationController
-  before_action :set_review, only: [:edit, :update, :destroy] # removed :show
+
   before_action :set_post
-  before_action :authenticate_user!
-  before_action :check_user, only: [:edit, :update, :destroy]
+  before_action :check_user
   
 =begin
   def index
@@ -11,7 +10,6 @@ class ReviewsController < ApplicationController
 
   def show
   end
-=end
   
   def new
     @review = Review.new
@@ -57,11 +55,14 @@ class ReviewsController < ApplicationController
     end
   end
 
+
   private
     def set_review
       @review = Review.find(params[:id])
     end
-    
+=end
+  
+   private 
     def set_post
       @post = Post.find(params[:post_id])
     end
@@ -71,8 +72,6 @@ class ReviewsController < ApplicationController
     end
     
     def check_user 
-      unless (@review.user == current_user) || (current_user.admin?)
-        redirect_to post_path(@post.id), alert: "sorry, this review belongs to someone else"
-      end
+      redirect_to post_path(@post.id)
     end
 end
